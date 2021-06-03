@@ -27,7 +27,7 @@ const ProfileCard = () => {
     history.push("/");
   };
   useEffect(()=>{
-    getUserOrders(dispatch);
+    getUserOrders();
   }, [userInfo])
   return (
     <Form
