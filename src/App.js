@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {createContext} from "react";
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
+import './App.css';
+import Home from "./page/Home";
+import Product from './page/Product';
+import Shopping from "./page/Shopping";
+import Shop from "./page/Shop";
+import Login from './page/Login'
+import Register from './page/Register'
+import Profile from './page/Profile'
+import Shipping from './page/Shipping'
+import Payment from './page/Payment'
+import Feed from './page/Feed';
+
+
+import { StoreProvider } from "./store";
+
+export const StoreContext = createContext();
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StoreProvider>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/products/feeder" component={Feed} />
+          <Route path="/product/:productId" component={Product} />
+          <Route path="/shopping" component={Shopping} />
+          <Route path="/Shop" component={Shop} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/shipping" component={Shipping} />
+          <Route path="/payment" component={Payment} />
+          <Route path="/profile" component={Profile} />
+  
+        </Switch>
+      </BrowserRouter>
+    </StoreProvider>
+    
+  
   );
 }
 
