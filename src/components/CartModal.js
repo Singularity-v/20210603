@@ -10,6 +10,7 @@ const { Option } = Select;
 export default function CartModal({ isModalVisible, toggleModal }) {
    const { state: { cartItems }, dispatch } = useContext(StoreContext);
    const handleCancel = () => toggleModal(!isModalVisible);
+   // const [color, setColor] = useState();
    const getTotalPrice = () => {
       return (cartItems.length > 0) ?
          cartItems.reduce((sum, item) => sum + item.price * item.qty, 0)
@@ -45,9 +46,10 @@ export default function CartModal({ isModalVisible, toggleModal }) {
             cartItems.map(item => (
                <div className="shopping-container1">
                   <li key={item.id} className="cart-item">
+                     
                      <Link to={`/product/${item.id}`} className="cart-image">
                         <div  onClick={()=>{
-                           setProductDetail(dispatch, item.id, item.qty);
+                           setProductDetail(dispatch, item.id, item.qty,);
                            handleCancel();
                         }}>
                            <img src={item.image} alt={item.name} />
@@ -63,31 +65,30 @@ export default function CartModal({ isModalVisible, toggleModal }) {
                         <div className="option-container">
                            <div className="shopping-content">
                               <div className="shopping-content-color">
-                              <div className="cart-color">{item.col}</div>
-                                 {/* <Select 
-                                    defaultValue={"None"} 
-                                    value={item.col}
+                                 {"   "}
+                                 <Select 
+                                    defaultValue={item.color} 
+                                    placeholder="Select color"
                                     className="select-style cart-top-right-container"
-                                    onChange={(col) => addCartItem(dispatch, item, col,item.qty)}
                                     // onChange={val=>setColor(val)}
-                                    
+                                    size="large"
                                  >
-                                 {[...Array(item.colorNum).keys()].map((x) => (
-                                    <Option key={x} value={x}>
-                                    {item.col} 
+                                 {[...Array(item.color.length).keys()].map((x) => (
+                                    <Option value={item.color[x]}>
+                                    {item.color[x]}
                                     </Option>
                                  ))}
-                              </Select>  */}
+                              </Select>
                               </div>
 
                               <div  className="shopping-qty">
                                  <div className="product-qty ">
-                                 &nbsp;
+                                    {"   "}
                                        <Select
                                           defaultValue={item.qty}
                                           value={item.qty}
                                           className="select-style cart-top-center-container"
-                                          onChange={(qty) => addCartItem(dispatch, item, qty,item.col)}
+                                          onChange={(qty) => addCartItem(dispatch, item, qty)}
                                           size="large"
                                        >
                                           {[...Array(item.countInStock).keys()].map((x) => (

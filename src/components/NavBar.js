@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import CartSummary from './CartSummary';
-import UserInfo from './UserInfo';
 
 export default function NavBar()    {
     return (
@@ -21,8 +20,8 @@ export default function NavBar()    {
                     </NavLink>
                 </div>
                 <div className=" header-icon ">
-                    <img alt="" className="header-icon1" src="https://raw.githubusercontent.com/shakuneko/icon/master/yh-search.png"/>
-                    <UserInfo/>
+                    <img className="header-icon1" src="https://raw.githubusercontent.com/shakuneko/icon/master/yh-search.png" alt=" "/>
+                    <img className="header-icon1" src="https://raw.githubusercontent.com/shakuneko/icon/master/yh-account.png" alt=" "/>
                     <CartSummary/>
                 </div>
             </div> 

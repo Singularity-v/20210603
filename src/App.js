@@ -5,15 +5,6 @@ import './App.css';
 import Home from "./page/Home";
 import Product from './page/Product';
 import Shopping from "./page/Shopping";
-import Shop from "./page/Shop";
-import Login from './page/Login'
-import Register from './page/Register'
-import Profile from './page/Profile'
-import Shipping from './page/Shipping'
-import Payment from './page/Payment'
-import Feed from './page/Feed';
-
-
 import { StoreProvider } from "./store";
 
 export const StoreContext = createContext();
@@ -23,20 +14,11 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/products/feeder" component={Feed} />
           <Route path="/product/:productId" component={Product} />
           <Route path="/shopping" component={Shopping} />
-          <Route path="/Shop" component={Shop} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/shipping" component={Shipping} />
-          <Route path="/payment" component={Payment} />
-          <Route path="/profile" component={Profile} />
-  
         </Switch>
       </BrowserRouter>
     </StoreProvider>
-    
   
   );
 }

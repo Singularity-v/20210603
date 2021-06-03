@@ -6,10 +6,9 @@ import { addCartItem } from "../action";
 import { ShoppingCartOutlined  } from '@ant-design/icons';
 
 
-export default function AddToCart() {
-  // const { dispatch } = useContext(StoreContext);
-  // const { state: { cartItems }} = useContext(StoreContext);
-  const { state: { cartItems, productDetail: { product,qty,col } }, dispatch } = useContext(StoreContext);
+export default function AddToCart({ product, qty }) {
+  const { dispatch } = useContext(StoreContext);
+  const { state: { cartItems }} = useContext(StoreContext);
 
   
 
@@ -27,7 +26,7 @@ export default function AddToCart() {
   }; 
       const addToCart = () => {
         openNotification();
-        addCartItem(dispatch, product, qty,col);
+        addCartItem(dispatch, product, qty);
       };
 
       useEffect(()=>{

@@ -1,17 +1,10 @@
-import {useContext} from "react";
 import {Card}from "antd"
 import { Link } from 'react-router-dom';
-import { StoreContext } from "../store";
-import { setProductDetail } from "../action";
 
 export default function ProductItem( { product }) {
-    const { dispatch } = useContext(StoreContext);
     return (
         <Card className="home-product">
-            <Link  to={`/product/${product.id}`}
-                onClick={() =>{
-                    setProductDetail(dispatch,product.id,1);
-                }}>
+            <Link  to={`/product/${product.id}`}>
                 <img 
                     className="product-pic"
                     src={product.image}

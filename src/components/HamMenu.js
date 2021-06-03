@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import React from 'react';
 import {  Drawer } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
+import CartSummary from './CartSummary';
 
 export default function HamMenu({  visible, onClose })    {
     return (
@@ -35,9 +36,9 @@ export default function HamMenu({  visible, onClose })    {
                     </NavLink>
                 </div>
                 <div className=" ham-menu-icons ">
-                    <img alt="" className="ham-menu-icon1" src="https://raw.githubusercontent.com/shakuneko/icon/master/yh-search.png"/>
-                    <img alt="" className="ham-menu-icon1" src="https://raw.githubusercontent.com/shakuneko/icon/master/yh-account.png"/>
-                    <img alt="" className="ham-menu-icon1" src="https://raw.githubusercontent.com/shakuneko/icon/master/yh-cart.png"/> 
+                    <img className="ham-menu-icon1" src="https://raw.githubusercontent.com/shakuneko/icon/master/yh-search.png" alt=" "/>
+                    <img className="ham-menu-icon1" src="https://raw.githubusercontent.com/shakuneko/icon/master/yh-account.png" alt=" "/>
+                    <CartSummary />
                 </div>
             </Drawer>
             
